@@ -2,22 +2,28 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-function Title({ children }) {
+function Title(props) {
   return (
-    <Link to='/'>
-      <TitleWrapper>{children}</TitleWrapper>
-    </Link>
+    <HeaderWrapper {...props}>
+      <Link to='/'>
+        <h1>{props.children}</h1>
+      </Link>
+    </HeaderWrapper>
   );
 }
 
-const TitleWrapper = styled.h1`
-  padding: 1rem 0;
+const HeaderWrapper = styled.header`
+  padding: 0.5rem 0;
   font-weight: 700;
+  font-size: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ bgColor }) => bgColor || "transparent"};
-  color: ${({ color }) => color || "black"};
+  border-bottom: 3px solid ${(props) => props.borderColor || "black"};
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: ${(props) => props.bgColor || props.theme.bgColors.primary};
+  color: ${(props) => props.color || props.theme.colors.primary};
 `;
 
 export default Title;

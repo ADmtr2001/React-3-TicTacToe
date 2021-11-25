@@ -1,3 +1,4 @@
 import Title from "./Title";
+import Modes from "./Modes";
 
-export { Title };
+export { Title, Modes };
