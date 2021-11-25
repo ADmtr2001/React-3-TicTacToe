@@ -6,10 +6,10 @@ function Modes(props) {
   return (
     <Wrapper {...props}>
       <Link to='/game' className='mode'>
-        <h2 className='title'>2 Player</h2>
+        <h2 className='title'>Player VS Player</h2>
       </Link>
       <Link to='/game' className='mode'>
-        <h2 className='title'>AI</h2>
+        <h2 className='title'>Player VS AI</h2>
       </Link>
     </Wrapper>
   );
@@ -32,7 +32,6 @@ const Wrapper = styled.main`
     align-items: center;
     border: 3px solid ${(props) => props.borderColor || "black"};
     border-radius: 10px;
-    cursor: pointer;
     position: relative;
 
     ::before {
@@ -57,7 +56,7 @@ const Wrapper = styled.main`
   }
 
   .title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 `;
 

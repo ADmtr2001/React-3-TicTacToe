@@ -2,13 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { IoSettingsSharp } from "react-icons/io5";
+import { Settings } from "./";
 
-function Title(props) {
+function Header(props) {
   return (
     <HeaderWrapper {...props}>
       <Link to='/'>
         <h1>{props.children}</h1>
       </Link>
+      <Settings />
     </HeaderWrapper>
   );
 }
@@ -27,10 +29,11 @@ const HeaderWrapper = styled.header`
   color: ${(props) => props.color || props.theme.colors.primary};
   cursor: url("https://img.icons8.com/external-those-icons-lineal-those-icons/24/ffffff/external-cursor-selection-cursors-those-icons-lineal-those-icons.png"),
     auto;
+  position: relative;
 
   .icon {
     justify-self: flex-end;
   }
 `;
 
-export default Title;
+export default Header;
