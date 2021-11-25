@@ -9,6 +9,14 @@ const Global = createGlobalStyle`
   padding: 0;
   box-sizing: border-box;
   font-family: 'Outfit', sans-serif;
+
+   -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 body {
@@ -27,7 +35,10 @@ button {
 a {
   text-decoration: none;;
   color: inherit;
-  cursor: url('https://img.icons8.com/external-those-icons-fill-those-icons/24/ffffff/external-cursor-selection-cursors-those-icons-fill-those-icons.png'), auto;
+  /* cursor: url('https://img.icons8.com/ios-glyphs/30/fa314a/cursor--v1.png') 12 13, auto; */
+  cursor: url("https://img.icons8.com/material-sharp/24/fa314a/pencil--v2.png")
+      12 12,
+    pointer;
 }
 
 li,
@@ -38,7 +49,7 @@ ul {
 
 const theme = {
   colors: {
-    primary: "rgb(242, 242, 242)",
+    primary: "rgba(233, 233, 233)",
   },
   bgColors: {
     primary: "transparent",

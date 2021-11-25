@@ -27,8 +27,9 @@ const HeaderWrapper = styled.header`
   border-bottom-right-radius: 5px;
   background-color: ${(props) => props.bgColor || props.theme.bgColors.primary};
   color: ${(props) => props.color || props.theme.colors.primary};
-  cursor: url("https://img.icons8.com/external-those-icons-lineal-those-icons/24/ffffff/external-cursor-selection-cursors-those-icons-lineal-those-icons.png"),
-    auto;
+  /* cursor: url("https://img.icons8.com/ios-glyphs/30/ffffff/cursor--v1.png") 12
+      13,
+    auto; */
   position: relative;
 
   .icon {

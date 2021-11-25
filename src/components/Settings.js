@@ -11,8 +11,12 @@ function Settings(props) {
 }
 
 const SettingsWrapper = styled.div`
-  cursor: url("https://img.icons8.com/external-those-icons-fill-those-icons/24/ffffff/external-cursor-selection-cursors-those-icons-fill-those-icons.png"),
-    auto;
+  /* cursor: url("https://img.icons8.com/ios-glyphs/30/fa314a/cursor--v1.png") 12
+      13,
+    auto; */
+  cursor: url("https://img.icons8.com/material-sharp/24/fa314a/pencil--v2.png")
+      12 12,
+    pointer;
   position: absolute;
   top: 63%;
   right: 2rem;
