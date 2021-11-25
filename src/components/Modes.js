@@ -1,18 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 function Modes(props) {
   return (
     <Wrapper {...props}>
-      <button className='mode' type='button'>
+      <Link to='/game' className='mode'>
         <h2 className='title'>2 Player</h2>
-      </button>
-      <button className='mode' type='button'>
+      </Link>
+      <Link to='/game' className='mode'>
         <h2 className='title'>AI</h2>
-      </button>
-      <button className='mode' type='button'>
-        <h2 className='title'>Settings</h2>
-      </button>
+      </Link>
     </Wrapper>
   );
 }
