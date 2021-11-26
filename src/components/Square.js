@@ -1,33 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { useGameContext } from "../contexts/game_context";
 
 function Square(props) {
-  return <SquareWrapper {...props}></SquareWrapper>;
+  const { handleClick, isEnd } = useGameContext();
+
+  return (
+    <SquareWrapper
+      {...props}
+      onClick={() => {
+        if (isEnd) return;
+        handleClick(props.id);
+      }}
+    >
+      <span className='sign'>{props.children}</span>
+    </SquareWrapper>
+  );
 }
 
 const SquareWrapper = styled.div`
-  border: 3px solid white;
+  color: ${(props) => props.color || props.theme.colors.primary};
+  font-size: 8rem;
+  border: 3px solid ${(props) => props.theme.borders.primary};
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: all 0.35s;
-  cursor: url("https://img.icons8.com/material-sharp/24/fa314a/pencil--v2.png")
-      12 12,
-    pointer;
-  .icon {
-    width: 40px;
-    height: 40px;
-    color: rgb(255, 76, 41);
-    opacity: 0;
-    transition: opacity 0.35s;
+
+  &.hoverable {
+    cursor: url("https://img.icons8.com/material-sharp/24/fa314a/pencil--v2.png")
+        12 12,
+      pointer;
   }
 
-  &:hover {
+  &.hoverable:hover {
     background: rgba(255, 255, 255, 0.2);
-    .icon {
-      opacity: 1;
-    }
+  }
+
+  &.marked {
+    color: red;
   }
 `;
 

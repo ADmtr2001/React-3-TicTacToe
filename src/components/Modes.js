@@ -30,14 +30,16 @@ const Wrapper = styled.main`
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid ${(props) => props.borderColor || "black"};
+    border: 3px solid
+      ${(props) => props.borderColor || props.theme.borders.primary};
     border-radius: 10px;
     position: relative;
 
     ::before {
       content: "";
       position: absolute;
-      background: ${(props) => props.borderColor || "black"};
+      background: ${(props) =>
+        props.borderColor || props.theme.borders.primary};
       height: 4rem;
       width: 3px;
       left: 3rem;
@@ -47,7 +49,8 @@ const Wrapper = styled.main`
     ::after {
       content: "";
       position: absolute;
-      background: ${(props) => props.borderColor || "black"};
+      background: ${(props) =>
+        props.borderColor || props.theme.borders.primary};
       height: 4rem;
       width: 3px;
       right: 3rem;

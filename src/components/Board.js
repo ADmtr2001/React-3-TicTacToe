@@ -1,15 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import { Square } from "./";
-
-const squares = Array.from({ length: 9 });
+import { useGameContext } from "../contexts/game_context";
 
 function Board(props) {
+  const { field, isEnd, winSequence } = useGameContext();
   return (
     <BoardWrapper {...props}>
       <div className='field'>
-        {squares.map((square, index) => {
-          return <Square key={index} className={`square${index + 1}`} />;
+        {field.map((square, index) => {
+          const classes =
+            `square${index + 1}` +
+            ` ${square || isEnd ? "" : "hoverable"}` +
+            ` ${winSequence.includes(index) ? "marked" : ""}`;
+          return (
+            <Square key={index} id={index} className={classes}>
+              {square}
+            </Square>
+          );
         })}
       </div>
     </BoardWrapper>
@@ -17,13 +25,10 @@ function Board(props) {
 }
 
 const BoardWrapper = styled.section`
-  height: 92vh;
+  height: calc(100vh - 80px);
   display: flex;
   justify-content: center;
   align-items: center;
-  /* cursor: url("https://img.icons8.com/material-sharp/24/ffffff/pencil--v2.png") */
-  /* 12 12,
-    auto; */
   .field {
     display: grid;
     width: 600px;

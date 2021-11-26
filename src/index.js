@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { GameProvider } from "./contexts/game_context";
 
 const Global = createGlobalStyle`
 * {
@@ -54,13 +55,18 @@ const theme = {
   bgColors: {
     primary: "transparent",
   },
+  borders: {
+    primary: "rgba(233, 233, 233)",
+  },
 };
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <Global />
-      <App />
+      <GameProvider>
+        <Global />
+        <App />
+      </GameProvider>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")

@@ -16,20 +16,19 @@ function Header(props) {
 }
 
 const HeaderWrapper = styled.header`
-  height: 8vh;
+  /* height: 8vh; */
+  height: 80px;
   font-weight: 700;
   font-size: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 3px solid ${(props) => props.borderColor || "black"};
+  border-bottom: 3px solid
+    ${(props) => props.borderColor || props.theme.borders.primary};
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   background-color: ${(props) => props.bgColor || props.theme.bgColors.primary};
   color: ${(props) => props.color || props.theme.colors.primary};
-  /* cursor: url("https://img.icons8.com/ios-glyphs/30/ffffff/cursor--v1.png") 12
-      13,
-    auto; */
   position: relative;
 
   .icon {
