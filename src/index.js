@@ -31,12 +31,14 @@ body {
 
 button {
   color: inherit;
+  cursor: url("https://img.icons8.com/material-sharp/24/fa314a/pencil--v2.png")
+      12 12,
+    pointer;
 }
 
 a {
   text-decoration: none;;
   color: inherit;
-  /* cursor: url('https://img.icons8.com/ios-glyphs/30/fa314a/cursor--v1.png') 12 13, auto; */
   cursor: url("https://img.icons8.com/material-sharp/24/fa314a/pencil--v2.png")
       12 12,
     pointer;

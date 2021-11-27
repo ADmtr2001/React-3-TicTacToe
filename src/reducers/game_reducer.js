@@ -1,9 +1,10 @@
 import React from "react";
 import {
-  CLEAR_FIELD,
+  RESET_GAME,
   CHANGE_PLAYER,
   HANDLE_CLICK,
   CHECK_FOR_WIN,
+  SET_PLAYER,
 } from "../actions";
 
 const possibleWinSequences = [
@@ -61,6 +62,20 @@ const game_reducer = (state, action) => {
       return { ...state, winner: "DRAW", isEnd: true };
     }
     return { ...state };
+  }
+
+  if (action.type === RESET_GAME) {
+    const nextPlayer = state.playerToStart === "X" ? "O" : "X";
+    return { ...action.payload, playerToStart: nextPlayer, player: nextPlayer };
+  }
+
+  if (action.type === SET_PLAYER) {
+    return {
+      ...state,
+      playerToStart: action.payload,
+      player: action.payload,
+      modalOpen: false,
+    };
   }
 
   return state;

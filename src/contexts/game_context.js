@@ -1,22 +1,25 @@
 import React, { useContext, useReducer, useEffect } from "react";
 import reducer from "../reducers/game_reducer";
 import {
-  CLEAR_FIELD,
+  RESET_GAME,
   CHANGE_PLAYER,
   HANDLE_CLICK,
   CHECK_FOR_WIN,
+  SET_PLAYER,
 } from "../actions";
 
 const GameContext = React.createContext();
 
 const initialState = {
   field: Array.from({ length: 9 }, (elem) => ""),
+  playerToStart: "X",
   player: "X",
   freeSquares: 9,
   winner: "",
   isDone: false,
   isEnd: false,
   winSequence: [],
+  modalOpen: true,
 };
 
 export const GameProvider = ({ children }) => {
@@ -31,16 +34,32 @@ export const GameProvider = ({ children }) => {
     console.log(`Player ${state.winner} won`);
   }, [state.winner]);
 
+  useEffect(() => {
+    console.log("reset");
+    if (state.isEnd) {
+      setTimeout(
+        () => dispatch({ type: RESET_GAME, payload: initialState }),
+        2000
+      );
+    }
+  }, [state.isEnd]);
+
   const handleClick = (id) => {
     dispatch({ type: HANDLE_CLICK, payload: id });
   };
 
-  const clearField = () => {
-    dispatch({ type: CLEAR_FIELD });
+  const resetGame = () => {
+    dispatch({ type: RESET_GAME, payload: initialState });
+  };
+
+  const setPlayer = (player) => {
+    dispatch({ type: SET_PLAYER, payload: player });
   };
 
   return (
-    <GameContext.Provider value={{ ...state, handleClick, clearField }}>
+    <GameContext.Provider
+      value={{ ...state, handleClick, resetGame, setPlayer }}
+    >
       {children}
     </GameContext.Provider>
   );
