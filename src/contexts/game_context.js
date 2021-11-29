@@ -27,7 +27,7 @@ export const GameProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: CHANGE_PLAYER });
-    dispatch({ type: CHECK_FOR_WIN });
+    if (state.freeSquares < 9) dispatch({ type: CHECK_FOR_WIN });
   }, [state.field]);
 
   useEffect(() => {

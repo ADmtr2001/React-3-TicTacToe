@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { useGameContext } from "../contexts/game_context";
 
 const Blur = () => {
   return <BlurWrapper></BlurWrapper>;

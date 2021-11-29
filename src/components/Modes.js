@@ -6,10 +6,7 @@ function Modes(props) {
   return (
     <Wrapper {...props}>
       <Link to='/game' className='mode'>
-        <h2 className='title'>Player VS Player</h2>
-      </Link>
-      <Link to='/game' className='mode'>
-        <h2 className='title'>Player VS AI</h2>
+        <h2 className='title'>Play</h2>
       </Link>
     </Wrapper>
   );

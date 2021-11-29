@@ -1,22 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { IoSettingsSharp } from "react-icons/io5";
-import { Settings } from "./";
+import { useGameContext } from "../contexts/game_context";
 
 function Header(props) {
+  const { resetGame } = useGameContext();
   return (
     <HeaderWrapper {...props}>
       <Link to='/'>
-        <h1>{props.children}</h1>
+        <h1 onClick={resetGame}>{props.children}</h1>
       </Link>
-      <Settings />
     </HeaderWrapper>
   );
 }
 
 const HeaderWrapper = styled.header`
-  /* height: 8vh; */
   height: 80px;
   font-weight: 700;
   font-size: 1.5rem;

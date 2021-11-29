@@ -22,7 +22,6 @@ const game_reducer = (state, action) => {
   if (action.type === HANDLE_CLICK) {
     const newField = [...state.field];
     if (newField[action.payload] === "") {
-      console.log("reducer");
       newField[action.payload] = state.player;
       return {
         ...state,
