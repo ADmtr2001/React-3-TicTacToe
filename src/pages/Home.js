@@ -1,6 +1,4 @@
 import React, { Fragment } from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { Modes } from "../components/";
 
 function Home() {
@@ -10,7 +8,5 @@ function Home() {
     </Fragment>
   );
 }
-
-// color='rgb(255, 76, 41)'
 
 export default Home;

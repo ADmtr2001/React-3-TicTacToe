@@ -30,12 +30,9 @@ export const GameProvider = ({ children }) => {
     if (state.freeSquares < 9) dispatch({ type: CHECK_FOR_WIN });
   }, [state.field]);
 
-  useEffect(() => {
-    console.log(`Player ${state.winner} won`);
-  }, [state.winner]);
+  useEffect(() => {}, [state.winner]);
 
   useEffect(() => {
-    console.log("reset");
     if (state.isEnd) {
       setTimeout(
         () => dispatch({ type: RESET_GAME, payload: initialState }),

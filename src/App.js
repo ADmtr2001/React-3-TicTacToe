@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Error, Game, Home, Loading } from "./pages/";
+import { Game, Home } from "./pages/";
 import { Header } from "./components";
 
 const App = () => {
@@ -13,9 +13,6 @@ const App = () => {
         </Route>
         <Route exact path='/game'>
           <Game />
-        </Route>
-        <Route exact path='*'>
-          <Error />
         </Route>
       </Switch>
     </Router>

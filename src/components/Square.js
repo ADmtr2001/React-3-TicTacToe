@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import { useGameContext } from "../contexts/game_context";
 
